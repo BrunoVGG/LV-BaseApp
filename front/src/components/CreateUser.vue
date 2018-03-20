@@ -67,13 +67,15 @@ export default {
       sendNewUser(){
         console.log("Send New User",this.newUser);
 
-        const url = 'http://127.0.0.1/edsa-server/LV-BaseApp/back/public/api/user/create';
+        const url = this.url_server+'api/user/create'
         var data = this.newUser;
 
         axios.post(url,this.newUser,data)
         .then(response => {
             // JSON responses are automatically parsed.
             this.posts = response.data
+            alert("New user created");
+            this.$router.push('/');
         })
         .catch(e => {
         this.errors.push(e)
