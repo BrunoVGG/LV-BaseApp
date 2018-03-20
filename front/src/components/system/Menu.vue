@@ -1,9 +1,9 @@
 <template>
-    <div class="nav">
+    <div id="menu-top">
         <ul>
             <li>
                 <router-link to="/system/">
-                    <i class="icon-user"></i> Home
+                    <i class="icon-user"></i> Dashboard
                 </router-link>
             </li>
             <li>

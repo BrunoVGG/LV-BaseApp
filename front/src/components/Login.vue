@@ -22,7 +22,7 @@
                     </form>
                 </div>
                 <router-link tag="a" to="/create_user">
-                Create Account
+                    Create Account
                 </router-link>
             </div>
         </div>
@@ -60,7 +60,7 @@ export default {
         }
 
         var headers = {'Content-Type': "application/json"}  
-        const url = 'http://127.0.0.1/edsa-server/LV-BaseApp/back/public/oauth/token'
+        const url = this.url_server+'oauth/token'
 
         axios.post(url,data,headers)
         .then(response => {

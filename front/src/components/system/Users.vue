@@ -1,34 +1,48 @@
 <template>
-    <div class="container">
-        <menu-top></menu-top>
-        <div class="well">
-            <table  v-if="users" class="table">
-                <thead>
-                    <tr>
-                    <th>#</th>
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Email</th>
-                    <th>Created</th>
-                    <th>Updated</th>
-                    <th style="width: 36px;"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(item,index) in users">
-                        <td>{{ index+1 }}</td>
-                        <td>{{ item.id }}</td>
-                        <td>{{ item.name }}</td>
-                        <td>{{ item.email }}</td>
-                        <td>{{ item.created_at }}</td>
-                        <td>{{ item.updated_at }}</td>
-                        <td>
-                            <a href="user.html">Edit</a>
-                            <a href="#myModal" role="button" data-toggle="modal">Remove</a>
-                        </td>
-                    </tr>                
-                </tbody>
-            </table>
+    <div class="container container-system">
+        <div class="container">
+            <menu-top class="row"></menu-top>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>USERS</h1>
+                </div>
+            </div>
+            <div class="row">
+                <table  v-if="users" class="table">
+                    <thead>
+                        <tr>
+                        <th>#</th>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Email</th>
+                        <th>Created</th>
+                        <th>Updated</th>
+                        <th style="width: 36px;">
+                            Edit
+                        </th>
+                        <th style="width: 36px;">
+                            Remove
+                        </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item,index) in users">
+                            <td>{{ index+1 }}</td>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.email }}</td>
+                            <td>{{ item.created_at }}</td>
+                            <td>{{ item.updated_at }}</td>
+                            <td>
+                                <button type="button" class="btn btn-info btn-list">Edit</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-list">Remove</button>
+                            </td>
+                        </tr>                
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </template>
@@ -56,13 +70,12 @@ export default {
     },
     methods:{
         loadUsers() {
-            console.log("Load Users");
             var localData = JSON.parse(window.localStorage.accessData);
-            console.log("localData",localData);
             var token = localData.access_token;
+            const url = this.url_server+'api/system/users'
 
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-            axios.get('http://127.0.0.1/edsa-server/LV-BaseApp/back/public/api/system/users')
+            axios.get(url)
                 .then(response => {
                     console.log("response", response);
                     this.users = response.data;
