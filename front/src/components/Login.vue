@@ -1,31 +1,32 @@
 <template>
-  <div class="container">
-      <div class="row">
-          <div class="col-sm-6 col-md-4 col-md-offset-4">
-          </div>
-          <div class="col-sm-6 col-md-4 col-md-offset-4">
-              <h1 class="text-center login-title">LOGIN AREA</h1>
-              <div class="account-wall">
-                  <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-                      alt="">
-                  <form v-on:click.prevent="Login" class="form-signin">
-                  <input v-model="user.email" type="text" class="form-control" placeholder="Email" required autofocus>
-                  <input v-model="user.password" type="password" class="form-control" placeholder="Password" required>
-                  <button class="btn btn-lg btn-primary btn-block" type="submit">
-                      Sign in</button>
-                  <label class="checkbox pull-left">
-                      <input type="checkbox" value="remember-me">
-                      Remember me
-                  </label>
-                  <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
-                  </form>
-              </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+            </div>
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <h1 class="text-center login-title">LOGIN AREA</h1>
+                <div class="account-wall">
+                    <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+                        alt="">
+                    <form v-on:click.prevent="Login" class="form-signin">
+                    <input v-model="user.email" type="text" class="form-control" placeholder="Email" required autofocus>
+                    <input v-model="user.password" type="password" class="form-control" placeholder="Password" required>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        Sign in
+                    </button>
+                    <label class="checkbox pull-left">
+                        <input type="checkbox" value="remember-me">
+                        Remember me
+                    </label>
+                    <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+                    </form>
+                </div>
                 <router-link tag="a" to="/create_user">
-                  Create Account
+                Create Account
                 </router-link>
-          </div>
-      </div>
-  </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -39,40 +40,37 @@ export default {
     return {
       msg: 'Login',
       user:{
-          email:"b.veigagg@gmail.com",
-          password:"123456",
-          repeat:""
+          email:'b.veigagg@gmail.com',
+          password:'123456',
+          repeat:''
       }
     }
   },
   methods:{
-        Login(){
-            console.log("Send New User",this.user);          
+    Login(){
+        console.log("Send New User",this.user);          
 
-            var data = {
-                grant_type:'password',
-                client_id:2,
-                client_secret:'DQAamKpvVwGNpFMGF4GDjODbrMzW3tcptNSEmGwi',
-                username:this.user.email,
-                password:this.user.password,
-                scope:''
-            }
-
-            var headers = {'Content-Type': "application/json"}  
-            const url = 'http://127.0.0.1/edsa-server/roche2/back/public/oauth/token'
-
-            axios.post(url,data,headers)
-            .then(response => {
-                // JSON responses are automatically parsed.
-                console.log('Deu certo =) ',response.data);
-            })
-            .catch(e => {
-                console.log('Error =..(');
-            });
-
-            
-
+        var data = {
+            grant_type:'password',
+            client_id:2,
+            client_secret:'DQAamKpvVwGNpFMGF4GDjODbrMzW3tcptNSEmGwi',
+            username:this.user.email,
+            password:this.user.password,
+            scope:''
         }
+
+        var headers = {'Content-Type': "application/json"}  
+        const url = 'http://127.0.0.1/edsa-server/roche2/back/public/oauth/token'
+
+        axios.post(url,data,headers)
+        .then(response => {
+            // JSON responses are automatically parsed.
+            console.log('Deu certo =) ',response.data);
+        })
+        .catch(e => {
+            console.log('Error =..(');
+        });
+    }
   }
 }
 </script>
