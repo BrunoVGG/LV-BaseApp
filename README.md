@@ -1,5 +1,5 @@
 # LV-BaseApp: Laravel and Vue.js
-Basic structure with Laravel and Vue.js. Split applications, to create a API with front end and back end for application REST with.
+Basic structure with Laravel and Vue.js. Split applications, to create a API with front end and back end for REST application.
 
 It aims to provide the foundation of an application, so you do not have to do everything from the beginning. It does not exclude the need to know the documentation of each of the technologies used, as well as make settings as to the specific variables of the environment where it will be installed. 
 
