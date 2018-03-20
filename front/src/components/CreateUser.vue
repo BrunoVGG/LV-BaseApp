@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <button class="btn btn-success btn-lg col-md-12">Register</button>
+                                <button type="sumbmit" class="btn btn-success btn-lg col-md-12">Register</button>
                             </div>
                         </div>
                   </form>
@@ -67,7 +67,7 @@ export default {
       sendNewUser(){
         console.log("Send New User",this.newUser);
 
-        const url = 'http://127.0.0.1/edsa-server/roche2/back/public/api/user/create';
+        const url = 'http://127.0.0.1/edsa-server/LV-BaseApp/back/public/api/user/create';
         var data = this.newUser;
 
         axios.post(url,this.newUser,data)

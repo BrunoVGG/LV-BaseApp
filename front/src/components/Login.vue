@@ -8,17 +8,17 @@
                 <div class="account-wall">
                     <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                         alt="">
-                    <form v-on:click.prevent="Login" class="form-signin">
-                    <input v-model="user.email" type="text" class="form-control" placeholder="Email" required autofocus>
-                    <input v-model="user.password" type="password" class="form-control" placeholder="Password" required>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">
-                        Sign in
-                    </button>
-                    <label class="checkbox pull-left">
-                        <input type="checkbox" value="remember-me">
-                        Remember me
-                    </label>
-                    <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+                    <form v-on:submit.prevent="Login" class="form-signin">
+                        <input v-model="user.email" type="text" class="form-control" placeholder="Email" required autofocus>
+                        <input v-model="user.password" type="password" class="form-control" placeholder="Password" required>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">
+                            Sign in
+                        </button>
+                        <label class="checkbox pull-left">
+                            <input type="checkbox" value="remember-me">
+                            Remember me
+                        </label>
+                        <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
                     </form>
                 </div>
                 <router-link tag="a" to="/create_user">
@@ -60,7 +60,7 @@ export default {
         }
 
         var headers = {'Content-Type': "application/json"}  
-        const url = 'http://127.0.0.1/edsa-server/roche2/back/public/oauth/token'
+        const url = 'http://127.0.0.1/edsa-server/LV-BaseApp/back/public/oauth/token'
 
         axios.post(url,data,headers)
         .then(response => {
