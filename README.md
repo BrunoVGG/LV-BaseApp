@@ -16,6 +16,8 @@ https://github.com/barryvdh/laravel-cors
 Vue.js 2.5.16
 https://vuejs.org/v2/
 
+Vue Passport
+https://www.npmjs.com/package/vue-passport
 
 FRONT END
 
