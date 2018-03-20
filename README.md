@@ -17,3 +17,19 @@ Vue.js 2.5.16
 https://vuejs.org/v2/
 
 
+FRONT END
+
+1- Install Vue 
+npm install vue
+
+2 - Vlue Clie
+npm install --global vue-cli
+
+3 - Run Dev
+npm run dev
+
+4 - Run Build
+  4.1 - npm run build
+  4.2 - Access: your-front-end-project/dist/index.html
+
+
