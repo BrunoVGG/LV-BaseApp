@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+Vue.prototype.url_server = 'http://127.0.0.1:8080/edsa-server/LV-BaseApp/back/public/';
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
