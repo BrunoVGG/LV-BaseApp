@@ -20,16 +20,16 @@ https://vuejs.org/v2/
 FRONT END
 
 1- Install Vue 
-npm install vue
+'npm install vue'
 
 2 - Vlue Clie
-npm install --global vue-cli
+'npm install --global vue-cli'
 
 3 - Run Dev
-npm run dev
+'npm run dev'
 
 4 - Run Build
-  4.1 - npm run build
-  4.2 - Access: your-front-end-project/dist/index.html
+  4.1 - 'npm run build'
+  4.2 - Access: 'your-front-end-project/dist/index.html'
 
 
