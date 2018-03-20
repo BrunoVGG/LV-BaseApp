@@ -8,6 +8,11 @@ use App\User;
 
 class UserController extends Controller
 {
+
+    public function index(){
+        return User::get();
+    }
+
     public function store(Request $request){
 
         $validatedData = $request->validate([

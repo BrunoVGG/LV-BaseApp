@@ -66,12 +66,7 @@ export default {
         .then(response => {
             // JSON responses are automatically parsed.
             console.log('Deu certo =) ',response.data);
-
-            localStorage.setItem('access_token', response.data.access_token);
-            localStorage.setItem('expires_in', response.data.expires_in);
-            localStorage.setItem('refresh_token', response.data.refresh_token);
-            localStorage.setItem('token_type', response.data.token_type);
-
+            localStorage.setItem('accessData', JSON.stringify(response.data));
             this.$router.push('system/');
         })
         .catch(e => {
