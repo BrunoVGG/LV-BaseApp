@@ -29,13 +29,7 @@
                     </form>
                 </div>   
                 <div class="col-md-4 col-md-offset-2">
-                    <form v-on:submit.prevent="updateUser" id="update-password-form" class="text-left">
-                        <div class="form-group">
-                            <label>Old Password</label>
-                            <div class="input-group">
-                                <input v-model="myUser.password" type="password" name="password" class="form-control" placeholder="Old Password" >                                
-                            </div>
-                        </div>	
+                    <form v-on:submit.prevent="updateUserPassword" id="update-password-form" class="text-left">
                         <div class="form-group">
                             <label>New Password</label>
                             <div class="input-group">
@@ -91,14 +85,38 @@ export default {
         updateUser(){
             var localData = JSON.parse(window.localStorage.accessData);
             var token = localData.access_token;
-            const url = this.url_server+'api/system/my_user'
-            var data = this.myUser;
+            const url = this.url_server+'api/system/myuser'
+            var data = {
+                    name:this.myUser.name,
+                    email:this.myUser.email
+                };
 
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
             axios.put(url,data)
             .then(response => {
                 console.log("response", response);
-                this.users = JSON.parse(response.data);
+            })
+            .catch(data => {
+                alert("Server Error...");
+                console.log(response);
+            });
+
+            this.show_list = true;
+            this.show_form = false;
+        },
+        updateUserPassword(){
+            var localData = JSON.parse(window.localStorage.accessData);
+            var token = localData.access_token;
+            const url = this.url_server+'api/system/my_user/password'
+            var data = {
+                    password:this.myUser.password,
+                    password_confirmation:this.myUser.password_confirmation
+                };
+
+            axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+            axios.put(url,data)
+            .then(response => {
+                console.log("response", response);
             })
             .catch(data => {
                 alert("Server Error...");
@@ -111,7 +129,7 @@ export default {
         loadUser() {
             var localData = JSON.parse(window.localStorage.accessData);
             var token = localData.access_token;
-            const url = this.url_server+'api/system/myuser'
+            const url = this.url_server+'api/system/myuser';
 
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
             axios.get(url)

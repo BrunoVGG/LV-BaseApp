@@ -31,22 +31,28 @@ class UserController extends Controller
 
     public function update(Request $request){
 
-        return Auth::user();
-
         $validatedData = $request->validate([
             'name' => 'required|max:100',
-            'email' => 'required|unique:users',
-            'password' => 'confirmed|min:6'
+            'email' => 'required'
         ]);
 
-        return Auth::user();
-        return "Update User";
 
-        $user = new User;
+        $user = User::findOrFail(Auth::user()->id);
         $user->name = $request->Input("name");
         $user->email = $request->Input("email");
-        $user->password = Hash::make($request->Input("password"));
         $user->save();   
+    }
+
+    public function updatePassword(Request $request){
+
+        $validatedData = $request->validate([
+            'password' => 'confirmed|min:6',
+        ]);
+
+        $user = User::findOrFail(Auth::user()->id);;
+
+        $user->password = Hash::make($request->Input("password"));
+        $user->save();
     }
 
     public function data(Request $request){

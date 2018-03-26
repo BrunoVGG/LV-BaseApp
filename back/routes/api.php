@@ -26,4 +26,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware('auth:api')->get('/system/user/data', 'UserController@data');
 Route::middleware('auth:api')->get('/system/users', 'UserController@index');
-Route::middleware('auth:api')->get('/system/myuser', 'UserController@update');
+Route::middleware('auth:api')->get('/system/myuser', 'UserController@data');
+Route::middleware('auth:api')->put('/system/myuser', 'UserController@update');
+Route::middleware('auth:api')->put('/system/myuser/password', 'UserController@updatePassword');
