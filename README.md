@@ -36,6 +36,7 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 </section>
 
 <section>
+ 
 ## FRONT END / VUE
 
 1- Install Vue <br>
