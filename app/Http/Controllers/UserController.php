@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Hash,Auth;
+use Hash,Auth,Storage;
 use Illuminate\Http\Request;
 use Laravel\Passport\Passport;
 use App\User;
 
 class UserController extends Controller
 {
-
     public function index(){
         return User::get();
     }
@@ -41,6 +40,16 @@ class UserController extends Controller
         $user->name = $request->Input("name");
         $user->email = $request->Input("email");
         $user->save();   
+    }
+
+    public function updateImage(Request $request){
+
+        $image = file_get_contents($request->Input("image"));
+
+        Storage::put('file.png', $image);
+
+        return "Ok 0)";
+      
     }
 
     public function updatePassword(Request $request){
