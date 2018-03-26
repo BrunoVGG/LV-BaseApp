@@ -5,6 +5,17 @@
  </a>
 </p>
 
+-# LV-BaseApp: Laravel and Vue.js
+-Basic structure with Laravel and Vue.js. Split applications, to create a API with front end and back end for REST application.
+
+-It aims to provide the foundation of an application, so you do not have to do everything from the beginning. It does not exclude the need to know the documentation of each of the technologies used, as well as make settings as to the specific variables of the environment where it will be installed. 
+
+-Vue Passport
+-https://www.npmjs.com/package/vue-passport
+
+-Laracel Cors
+-https://github.com/barryvdh/laravel-cors
+
 ## <a href="https://github.com/vuejs/vue" target="_blank" >About Laravel</a>
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects.
@@ -14,3 +25,19 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 <p>Vue (pronounced <code>/vjuː/</code>, like view) is a <strong>progressive framework</strong> for building user interfaces. It is designed from the ground up to be incrementally adoptable, and can easily scale between a library and a framework depending on different use cases. It consists of an approachable core library that focuses on the view layer only, and an ecosystem of supporting libraries that helps you tackle complexity in large Single-Page Applications.</p>
 
+-Vue Passport
+-https://www.npmjs.com/package/vue-passport
+
+
+## FRONT END
+
+-1- Install Vue 
+-'npm install vue'
+-2 - Vlue Clie
+-'npm install --global vue-cli'
+-3 - Run Dev
+-'npm run dev'
+
+-4 - Run Build
+-  4.1 - 'npm run build'
+-  4.2 - Access: 'your-front-end-project/dist/index.html'
