@@ -49,8 +49,9 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 3.1 - 'npm run build'
 3.1 - Access: 'your-front-end-project/dist/index.html'
 </section>
-
+<br>
 <section>
+ 
 ## BACK END / LARAVEL
 1 - Run: 'php artisan migrate'
  
