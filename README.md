@@ -29,15 +29,18 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 -https://www.npmjs.com/package/vue-passport
 
 
-## FRONT END
+## FRONT END / VUE
 
--1- Install Vue 
--'npm install vue'
--2 - Vlue Clie
--'npm install --global vue-cli'
--3 - Run Dev
--'npm run dev'
+1- Install Vue <br>
+1.1 -Run: 'npm install vue'<br>
 
--4 - Run Build
--  4.1 - 'npm run build'
--  4.2 - Access: 'your-front-end-project/dist/index.html'
+2 - Vlue Clie <br>
+2.1 - Run: 'npm install --global vue-cli' <br>
+2.2 Run: 'npm run dev'
+
+3 - Run Build
+3.1 - 'npm run build'
+3.1 - Access: 'your-front-end-project/dist/index.html'
+
+## BACK END / LARAVEL
+1 - Run: 'php artisan migrate'
