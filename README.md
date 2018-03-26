@@ -5,7 +5,9 @@
  </a>
 </p>
 <section>
+
 ## LV-BaseApp: Laravel and Vue.js
+
 <br> 
 -Basic structure with Laravel and Vue.js. Split applications, to create a API with front end and back end for REST application.
 
