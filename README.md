@@ -34,8 +34,8 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 <p>Vue (pronounced <code>/vjuː/</code>, like view) is a <strong>progressive framework</strong> for building user interfaces. It is designed from the ground up to be incrementally adoptable, and can easily scale between a library and a framework depending on different use cases. It consists of an approachable core library that focuses on the view layer only, and an ecosystem of supporting libraries that helps you tackle complexity in large Single-Page Applications.</p>
 
--Vue Passport
--https://www.npmjs.com/package/vue-passport
+- Vue Passport
+- https://www.npmjs.com/package/vue-passport
 
 - Vue Loading Overlay Component
 - https://github.com/ankurk91/vue-loading-overlay
