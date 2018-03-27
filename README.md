@@ -1,58 +1,68 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
-
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+ <img src="https://laravel.com/assets/img/components/logo-laravel.svg">  
+ <a href="https://vuejs.org" rel="nofollow">
+   <img width="100" src="https://camo.githubusercontent.com/728ce9f78c3139e76fa69925ad7cc502e32795d2/68747470733a2f2f7675656a732e6f72672f696d616765732f6c6f676f2e706e67" alt="Vue logo" data-canonical-src="https://vuejs.org/images/logo.png" style="max-width:100%;">
+ </a>
 </p>
+<section>
 
-## About Laravel
+## LV-BaseApp: Laravel and Vue.js
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+<br> 
+-Basic structure with Laravel and Vue.js. Split applications, to create a API with front end and back end for REST application.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-It aims to provide the foundation of an application, so you do not have to do everything from the beginning. It does not exclude the need to know the documentation of each of the technologies used, as well as make settings as to the specific variables of the environment where it will be installed. 
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+-Vue Passport
+-https://www.npmjs.com/package/vue-passport
 
-## Learning Laravel
+-Laracel Cors
+-https://github.com/barryvdh/laravel-cors
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+</section>
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+<section>
+ 
+## <a href="https://github.com/vuejs/vue" target="_blank" >About Laravel 5</a>
 
-## Laravel Sponsors
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects.
+</section>
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+<section>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Pulse Storm](http://www.pulsestorm.net/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
+## <a href="https://github.com/vuejs/vue" target="_blank" >About Vue</a>
 
-## Contributing
+<p>Vue (pronounced <code>/vjuː/</code>, like view) is a <strong>progressive framework</strong> for building user interfaces. It is designed from the ground up to be incrementally adoptable, and can easily scale between a library and a framework depending on different use cases. It consists of an approachable core library that focuses on the view layer only, and an ecosystem of supporting libraries that helps you tackle complexity in large Single-Page Applications.</p>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Vue Passport
+- https://www.npmjs.com/package/vue-passport
 
-## Security Vulnerabilities
+- Vue Loading Overlay Component
+- https://github.com/ankurk91/vue-loading-overlay
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+</section>
 
-## License
+<section>
+ 
+## FRONT END / VUE
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1- Install Vue <br>
+1.1 -Run: 'npm install vue'<br>
+
+2 - Vlue Clie <br>
+2.1 - Run: 'npm install --global vue-cli' <br>
+2.2 Run: 'npm run dev'
+
+3 - Run Build
+3.1 - 'npm run build'
+3.1 - Access: 'your-front-end-project/dist/index.html'
+</section>
+<br>
+<section>
+ 
+## BACK END / LARAVEL
+1 - Run composer install
+2 - Run: php artisan migrate<br>
+3 - Run: php artisan passport:install 
+ 
+</section> 
