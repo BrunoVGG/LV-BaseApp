@@ -58,6 +58,8 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 <section>
  
 ## BACK END / LARAVEL
-1 - Run: 'php artisan migrate'
+1 - Run composer install
+2 - Run: php artisan migrate<br>
+3 - Run: php artisan passport:install 
  
 </section> 
