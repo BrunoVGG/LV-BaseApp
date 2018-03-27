@@ -1,5 +1,6 @@
 <template>
     <div class="container container-system">
+        <loading :active.sync="isLoading" :can-cancel="true" :on-cancel="whenCancelled"></loading>
         <div class="container">
             <menu-top class="row"></menu-top>
             <div class="row">
@@ -16,55 +17,56 @@
                         <div class="form-group">
                             <label>Name</label>
                             <div class="input-group">
-                                <input v-model="myUser.name" type="text" name="first_name" class="form-control" placeholder="First..." >                                
+                                <input v-model="myUser.name" type="text" name="first_name" 
+                                class="form-control" placeholder="First..." required>                                
                             </div>
-                        </div>		
-
+                        </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input v-model="myUser.email" type="email" name="email_address" class="form-control input-sm" placeholder="Email address...">
-                        </div>	
-
-                        <button type="submit" name="submit_button" value="register" class="btn btn-success pull-right">
+                            <input v-model="myUser.email" type="email" name="email_address"
+                            class="form-control input-sm" placeholder="Email address..." required>
+                        </div>
+                        <button type="submit" name="submit_button" value="register" 
+                        class="btn btn-success pull-right">
                             Update
-                        </button>
-                    
+                        </button>                    
                     </form>
                 </section>     
                 <section class="col-md-4 col-md-offset-2">
-                    <form v-on:submit.prevent="updateUserPassword" id="update-password-form" class="text-left">
+                    <form v-on:submit.prevent="updateUserPassword" id="update-password-form" 
+                    class="text-left">
                         <div class="form-group">
                             <h2>Password</h2>
                         </div>    
                         <div class="form-group">
                             <label>New Password</label>
                             <div class="input-group">
-                                <input v-model="myUser.password" type="password" name="password" class="form-control" placeholder="New Password" >                                
+                                <input v-model="myUser.password" type="password" name="password" 
+                                class="form-control" placeholder="New Password" required >                                
                             </div>
                         </div>	
                         <div class="form-group">
                             <label>Confirm Password</label>
                             <div class="input-group">
-                                <input v-model="myUser.password_confirmation" type="password" name="password" class="form-control" placeholder="Confirm" >
+                                <input v-model="myUser.password_confirmation" type="password" 
+                                name="password" class="form-control" placeholder="Confirm" required >
                             </div>
                         </div>
-                        <button type="submit" name="submit_button" value="register" class="btn btn-success pull-right">
+                        <button type="submit" name="submit_button" value="register" 
+                        class="btn btn-success pull-right">
                             Update Password
                         </button>                    
                     </form>
                 </section>  
                 <section class="col-md-4 col-md-offset-2">
-                    <form v-on:submit.prevent="updateUserImage" id="update-image" class="text-left">
+                    <form v-on:submit.prevent="updateUserImage" id="update-image" 
+                    class="text-left">
                         <div class="form-group">
                             <h2>Image</h2>
                         </div>
-                        
-                        <div class="form-group">
-                            File Image 
-                            <input @change="processFile($event)" name="myFile" type="file">
-                            {{ myUser.imagem }}
-                        </div>
-
+                        <div class="form-group">  
+                            <img v-if="!image && myUser.avatar" :src="myUser.avatar" style="max-width:230px">
+                        </div>  
                         <div class="form-group">    
                             <div class="input-group">                                        
                                 <div v-if="!image">
@@ -72,12 +74,11 @@
                                     <input type="file" @change="onFileChange">
                                 </div>
                                 <div v-else>
-                                    <img :src="image" style="max-width:230px" />  
-                                    <div>{{ image }}</div>                                  
+                                    <img :src="image" style="max-width:230px" required />                          
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group">  
                             <button type="submit" name="submit_button" value="register" class="btn btn-success">
                                 Update Image
                             </button> 
@@ -99,12 +100,16 @@
 import axios from 'axios'
 //import VueAxios from 'vue-axios'
 
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.min.css';
+
 import menuTop from './Menu.vue'
 
 export default {
     name: 'MyUser',
     components:{
-        menuTop
+        menuTop,
+        Loading
     },
     data () {
         return {
@@ -116,13 +121,24 @@ export default {
                 password_confirmation:'',
                 image:''
             },
-            image: ''
+            image: '',
+            isLoading: false,
         }
     },
     mounted(){
         this.loadUser(); 
     },
     methods:{
+        fetchData() {
+            this.isLoading = true;
+            // AJAX example with axios
+            axios.post('/api').then((response)=>{
+                this.isLoading = false                
+            })
+        },
+        whenCancelled() {
+            console.log("User cancelled the loader.")
+        },
         processFile(event) {
             this.myUser.imagem = event.target.files[0]
         },
@@ -134,15 +150,18 @@ export default {
                     name:this.myUser.name,
                     email:this.myUser.email
                 };
+            this.isLoading = true;
 
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
             axios.put(url,data)
             .then(response => {
                 console.log("response", response);
+                this.isLoading = false;
             })
             .catch(data => {
                 alert("Server Error...");
                 console.log(response);
+                this.isLoading = false;
             });
 
             this.show_list = true;
@@ -157,14 +176,17 @@ export default {
                     password_confirmation:this.myUser.password_confirmation
                 };
 
+            this.isLoading = true;
+
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
             axios.put(url,data)
             .then(response => {
                 console.log("response", response);
+                this.isLoading = false;
             })
-            .catch(data => {
+            .catch(response => {
                 alert("Server Error...");
-                console.log(response);
+                this.isLoading = false;
             });
 
             this.show_list = true;
@@ -180,33 +202,46 @@ export default {
                     user_image:this.myUser.imagem
                 };
 
+            this.isLoading = true;
+
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
             axios.put(url,data)
             .then(response => {
-                console.log("response", response);
+                this.isLoading = false;
+                this.myUser.avatar = response.data;
             })
             .catch(data => {
                 alert("Server Error...");
-                console.log(response);
+                this.isLoading = false;
             });
 
             this.show_list = true;
             this.show_form = false;
         },
+        updateLocalStorage(){
+            var dataUser = localStorage.getItem('user');
+            dataUser = JSON.parse(dataUser);
+            dataUser.avatar = response.data;
+            dataUser = JSON.stringify(dataUser);
+            localStorage.setItem('user',dataUser);
+        },
         loadUser() {
             var localData = JSON.parse(window.localStorage.accessData);
             var token = localData.access_token;
             const url = this.url_server+'api/system/myuser';
-
+            this.isLoading = true;
+    
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
             axios.get(url)
             .then(response => {
                 console.log("response", response);
                 this.myUser = response.data;
+                this.isLoading = false;
             })
             .catch(data => {
                 alert("Server Error...");
                 console.log(response);
+                this.isLoading = false;
             });
 
             this.show_list = true;

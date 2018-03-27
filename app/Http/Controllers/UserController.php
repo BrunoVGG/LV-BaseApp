@@ -35,7 +35,6 @@ class UserController extends Controller
             'email' => 'required'
         ]);
 
-
         $user = User::findOrFail(Auth::user()->id);
         $user->name = $request->Input("name");
         $user->email = $request->Input("email");
@@ -45,17 +44,21 @@ class UserController extends Controller
     public function updateImage(Request $request){
 
         $image = file_get_contents($request->Input("image"));
+        $image_name = Auth::user()->id.'_avatar.png';
 
-        Storage::put('file.png', $image);
+        Storage::put('public/avatar/'.$image_name, $image);
 
-        return "Ok 0)";
-      
+        $user = User::findOrFail(Auth::user()->id);
+        $user->avatar = $image_name;
+        $user->save();
+
+        return asset("storage/avatar/$image_name");      
     }
 
     public function updatePassword(Request $request){
 
         $validatedData = $request->validate([
-            'password' => 'confirmed|min:6',
+            'password' => 'required|confirmed|min:6',
         ]);
 
         $user = User::findOrFail(Auth::user()->id);;
@@ -65,6 +68,16 @@ class UserController extends Controller
     }
 
     public function data(Request $request){
-        return Auth::user();        
+        $user = Auth::user();
+
+        $user = User::findOrFail(Auth::user()->id);
+
+        if($user->avatar):
+            $avatar = $user->avatar;
+            $avatar_file = asset("storage/avatar/$avatar");
+            $user->avatar = $avatar_file;
+        endif;
+
+        return $user;       
     }
 }

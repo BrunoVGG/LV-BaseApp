@@ -1,5 +1,6 @@
 <template>
     <div class="container container-system">
+        <loading :active.sync="isLoading" :can-cancel="true" :on-cancel="whenCancelled"></loading>
         <div class="container">
             <menu-top class="row"></menu-top>
             <div class="row">
@@ -51,25 +52,33 @@
 
 import axios from 'axios'
 //import VueAxios from 'vue-axios'
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.min.css';
 
 import menuTop from './Menu.vue'
 
 export default {
     name: 'Dashboard',
     components:{
-        menuTop
+        menuTop,
+        Loading
     },
     data () {
         return {
             title: 'Dashboard',
-            users:null
+            users:null,
+            isLoading: false,
         }
     },
     mounted(){
         this.loadUsers();
     },
     methods:{
+        whenCancelled() {
+            console.log("User cancelled the loader.")
+        },
         loadUsers() {
+            this.isLoading = true;
             var localData = JSON.parse(window.localStorage.accessData);
             var token = localData.access_token;
             const url = this.url_server+'api/system/users'
@@ -79,9 +88,11 @@ export default {
                 .then(response => {
                     console.log("response", response);
                     this.users = response.data;
+                    this.isLoading = false;
                 })
                 .catch(data => {
                     apiReturnError(response);
+                    this.isLoading = false;
                 });
 
             this.show_list = true;

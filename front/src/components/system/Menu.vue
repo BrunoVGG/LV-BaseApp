@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="menu-top" class="col-md-8">
+        <div id="menu-top" class="col-md-7">
             <ul>
                 <li>
                     <router-link to="/system/">
@@ -12,21 +12,16 @@
                         <i class="icon-user"></i> Users
                     </router-link>
                 </li>
-                <li>
-                    <router-link to="/system/my_user">
-                        <i class="icon-user"></i> My Users
-                    </router-link>
-                </li>
-                <li v-on:click.prevent="logOut">
-                    <a href="#">
-                        <i class="icon-user"></i> LogOut
-                    </a>
-                </li>
             </ul>
         </div>
 
-        <div v-if="dataUser" id="menu-top" class="col-md-4">
-            {{ dataUser.name }} / {{ dataUser.email }}
+        <div v-if="dataUser" id="menu-top" class="col-md-5 text-right">
+            <router-link to="/system/my_user">
+            <img v-if="dataUser.avatar" :src="dataUser.avatar" style="max-width:50px">
+            {{ dataUser.name }} </router-link> / 
+            <a href="#" v-on:click.prevent="logOut">
+                <i class="icon-user"></i> (LogOut)
+            </a>
         </div>
     </div>   
 </template>
@@ -77,7 +72,8 @@ export default {
                 console.log(response.data);
                 var dataUser = {
                     name:response.data.name,
-                    email:response.data.email
+                    email:response.data.email,
+                    avatar:response.data.avatar
                 };
 
                 var dataUser = JSON.stringify(dataUser);
