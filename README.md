@@ -37,6 +37,9 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 -Vue Passport
 -https://www.npmjs.com/package/vue-passport
 
+- Vue Loading Overlay Component
+- https://github.com/ankurk91/vue-loading-overlay
+
 </section>
 
 <section>
