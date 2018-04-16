@@ -15,10 +15,12 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "es6-promise": "^4.2.4",
     "vue": "^2.5.2",
     "vue-axios": "^2.0.2",
     "vue-loading-overlay": "^2.0.4",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

@@ -157,11 +157,11 @@ export default {
             .then(response => {
                 console.log("response", response);
                 this.isLoading = false;
+
+                this.updateLocalStorage();
             })
-            .catch(data => {
+            .catch(response => {
                 alert("Server Error...");
-                console.log(response);
-                this.isLoading = false;
             });
 
             this.show_list = true;
@@ -209,6 +209,7 @@ export default {
             .then(response => {
                 this.isLoading = false;
                 this.myUser.avatar = response.data;
+                this.updateLocalStorage();
             })
             .catch(data => {
                 alert("Server Error...");
@@ -221,7 +222,8 @@ export default {
         updateLocalStorage(){
             var dataUser = localStorage.getItem('user');
             dataUser = JSON.parse(dataUser);
-            dataUser.avatar = response.data;
+            dataUser.avatar = this.myUser.avatar;
+            dataUser.name = this.myUser.name;
             dataUser = JSON.stringify(dataUser);
             localStorage.setItem('user',dataUser);
         },

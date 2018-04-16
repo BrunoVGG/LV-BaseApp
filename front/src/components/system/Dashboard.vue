@@ -1,7 +1,7 @@
 <template>
     <div class="container container-system">
         <div class="container">
-            <menu-top class="row"></menu-top>
+            <menu-top :data="null" class="row"></menu-top>
             <div class="row">
                 <div class="col-md-12">
                     <h1>Dashboard</h1>
