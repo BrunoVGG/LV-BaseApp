@@ -30,9 +30,8 @@
 </template>
 
 <script>
-
 import axios from 'axios'
-import VueAxios from 'vue-axios'
+import Vuex from 'vuex';
 
 export default {
   name: 'Login',
@@ -68,6 +67,7 @@ export default {
             console.log('Deu certo =) ',response.data);
             localStorage.setItem('accessData', JSON.stringify(response.data));
             this.$router.push('system/');
+
         })
         .catch(e => {
             alert('Error =..(');

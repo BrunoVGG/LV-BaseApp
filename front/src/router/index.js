@@ -7,6 +7,7 @@ import CreateUser from '@/components/CreateUser'
 import Dashboard from '@/components/system/Dashboard'
 import Users from '@/components/system/Users'
 import MyUser from '@/components/system/MyUser'
+import Counter from '@/components/system/Counter'
 
 Vue.use(VueAxios, axios)
 Vue.use(Router)
@@ -43,6 +44,12 @@ export default new Router({
       path: '/system/my_user',
       name: 'MyUser',
       component: MyUser,
+      requiresAuth: true
+    },
+    {
+      path: '/system/counter',
+      name: 'Counter',
+      component: Counter,
       requiresAuth: true
     }
   ]

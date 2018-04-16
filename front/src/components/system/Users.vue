@@ -5,7 +5,9 @@
             <menu-top class="row"></menu-top>
             <div class="row">
                 <div class="col-md-12">
-                    <h1>USERS</h1>
+                    <h1>
+                        USERS
+                    </h1>
                 </div>
             </div>
             <div class="row">
@@ -65,15 +67,17 @@ export default {
     },
     data () {
         return {
-            title: 'Dashboard',
+            title: 'Users',
             users:null,
-            isLoading: false,
+            isLoading: false
         }
     },
     mounted(){
         this.loadUsers();
+
+        this.count = this.$store.state.count; 
     },
-    methods:{
+    methods:{        
         whenCancelled() {
             console.log("User cancelled the loader.")
         },

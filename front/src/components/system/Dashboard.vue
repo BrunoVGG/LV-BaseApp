@@ -86,10 +86,11 @@
 </template>
 
 <script>
-//import axios from 'axios'
-//import VueAxios from 'vue-axios'
 
 import menuTop from './Menu.vue'
+
+// in full builds helpers are exposed as Vuex.mapState
+import { mapState } from 'vuex'
 
 export default {
   name: 'Dashboard',

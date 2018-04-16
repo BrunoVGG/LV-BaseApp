@@ -201,15 +201,19 @@ export default {
                     image:this.image,
                     user_image:this.myUser.imagem
                 };
-
             this.isLoading = true;
 
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
             axios.put(url,data)
             .then(response => {
                 this.isLoading = false;
-                this.myUser.avatar = response.data;
-                this.updateLocalStorage();
+                var dataUser = localStorage.getItem('user');
+                dataUser = JSON.parse(dataUser);
+                dataUser.avatar = data.image;
+                this.$store.state.user.avatar = dataUser.avatar;
+
+                dataUser = JSON.stringify(dataUser);
+                localStorage.setItem('user',dataUser);
             })
             .catch(data => {
                 alert("Server Error...");
@@ -226,8 +230,15 @@ export default {
             dataUser.name = this.myUser.name;
             dataUser = JSON.stringify(dataUser);
             localStorage.setItem('user',dataUser);
+
+            this.$store.state.user.name = this.myUser.name;
         },
         loadUser() {
+            var myUser = localStorage.user;
+            this.myUser = JSON.parse(myUser);
+        },
+        loadUserDB() {
+            
             var localData = JSON.parse(window.localStorage.accessData);
             var token = localData.access_token;
             const url = this.url_server+'api/system/myuser';
@@ -267,6 +278,7 @@ export default {
         },
         removeImage: function (e) {
             this.image = '';
+            
         }
   }
 }
