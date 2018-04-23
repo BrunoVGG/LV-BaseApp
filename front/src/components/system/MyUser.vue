@@ -12,7 +12,7 @@
                 <section class="col-md-4">
                     <form v-on:submit.prevent="updateUser" id="update-userdata-form" class="text-left">
                         <div class="form-group">
-                            <h2>Your Data</h2>
+                            <h2>My Data</h2>
                         </div>    
                         <div class="form-group">
                             <label>Name</label>

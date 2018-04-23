@@ -34,7 +34,7 @@
                             <td>{{ item.id }}</td>
                             <td>{{ item.name }}</td>
                             <td>{{ item.email }}</td>
-                            <td>{{ item.created_at }}</td>
+                            <td>{{ item.created_at | date }}</td>
                             <td>{{ item.updated_at }}</td>
                             <td>
                                 <button type="button" class="btn btn-info btn-list">Edit</button>

@@ -1,5 +1,18 @@
+body{
+    background-color: #424242
+}
+
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 20px;
+}
+
 .container-system{
-    min-height: 200px;
+    min-height: 250px;
     margin-top: 0px;
     padding: 20px 20px 20px 20px;
     margin-bottom: 10px;
@@ -12,17 +25,21 @@
 h1{
     text-transform: uppercase;
     color: #575757;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: left;
 }
 
 #menu-top ul{
     list-style: none;
-    padding-left: 0px
+    padding-left: 0px;
+    margin-bottom: 50px
 }
 #menu-top ul li{
+    text-align: left;
     float:left;
     padding: 10px;
-    width: 100px;
+    width: 140px;
     color: #000 !important
 }
 
@@ -79,7 +96,7 @@ h1{
 }
 .login-title
 {
-    color: #555;
+    color: #424242;
     font-size: 18px;
     font-weight: 400;
     display: block;

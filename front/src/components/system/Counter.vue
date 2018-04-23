@@ -4,15 +4,20 @@
             <menu-top :data="null" class="row"></menu-top>
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Count</h1>
+                    <h1>
+                        Count by 
+                        <a href="https://vuex.vuejs.org/en/" target="_blank">
+                            Vuex
+                        </a>
+                    </h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     {{ count }} = 
                     <input v-model="count" v-on:change="updateCount" type="number" >
-                </div>                
-
+                    <button v-on:click="add()">Add</button>
+                </div>
             </div>
         </div>
     </div>
@@ -37,13 +42,19 @@ export default {
     },
     methods:{
         updateCount(){
-            console.log("updateCount");        
-            this.$store.state.count = this.count;
+            console.log("updateCount");
+            this.$store.state.a.count = this.count;
+        },
+        add(){
+            this.$store.state.a.msn = "My Message";
+            this.$store.commit('increment','My Text');
+            this.count = this.$store.state.a.count;
         }
     },
     mounted(){
+        console.log('this.$store.state.a.count',this.$store.state.a.count);
         this.$store.commit('increment');
-        this.count = this.$store.state.count;
+        this.count = this.$store.state.a.count;
     }
 }
 </script>

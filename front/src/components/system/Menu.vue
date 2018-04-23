@@ -1,5 +1,6 @@
     <template>
     <div>
+        <loading :active.sync="isLoading" :can-cancel="true" :on-cancel="whenCancelled"></loading>
         <div id="menu-top" class="col-md-7">
             <ul>
                 <li>
@@ -15,7 +16,7 @@
                 <li>
                     <router-link to="/system/counter">
                         <i class="icon-user"></i> Counter
-                        {{ count }}
+                        ({{ count }})
                     </router-link>
                 </li>
             </ul>
@@ -26,8 +27,9 @@
                 <img v-if="dataUser.avatar" :src="dataUser.avatar" style="max-width:50px">
                 {{ dataUser.name }} 
             </router-link>
+            | 
             <a href="#" v-on:click.prevent="logOut">
-                <i class="icon-user"></i> (LogOut)
+                <i class="icon-user"></i> LogOut
             </a>
         </div>
 
@@ -40,15 +42,22 @@
 import axios from 'axios'
 //import VueAxios from 'vue-axios'
 
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.min.css';
+
 export default {
     name: 'Menu',
+    components:{
+        Loading
+    },
     data () {
         return {
             title: 'Menu',
             dataUser:null,
             name:'',
             user:null,
-            count2:null
+            count2:null,
+            isLoading: false
         }
     },
     mounted(){
@@ -63,7 +72,11 @@ export default {
 
     },
     methods:{
+        whenCancelled() {
+            console.log("User cancelled the loader.")
+        },
         logOut(){
+                this.isLoading = true;
                 localStorage.removeItem('accessData');
                 localStorage.removeItem('user');
                 this.$router.push('/');
@@ -104,7 +117,7 @@ export default {
     },
     computed: {
         count () {
-            return this.$store.state.count
+            return this.$store.state.a.count
         }
     }
 }
