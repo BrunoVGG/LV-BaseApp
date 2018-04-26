@@ -19,6 +19,16 @@
                         ({{ count }})
                     </router-link>
                 </li>
+                <li>
+                    <router-link to="/system/blank_page">
+                        Blank Page
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/system/blank_page2">
+                        Blank Page 2
+                    </router-link>
+                </li>
             </ul>
         </div>
 
@@ -32,7 +42,6 @@
                 <i class="icon-user"></i> LogOut
             </a>
         </div>
-
     </div>
        
 </template>

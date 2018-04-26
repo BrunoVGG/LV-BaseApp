@@ -75,17 +75,21 @@ export default {
             const url_system = this.url_server+'system/'
             axios.post(url,data,headers)
             .then(response => {
+                this.isLoading = false;
                 // JSON responses are automatically parsed.
                 console.log('Deu certo =) ',response.data);
                 localStorage.setItem('accessData', JSON.stringify(response.data));
                 this.$router.push('system/');
-                this.isLoading = false;
             })
             .catch(e => {
                 alert('Error =..(');
                 this.isLoading = false;
             });
         }
+    },
+    mounted(){
+        this.isLoading = false;
+         $('.modal-backdrop.show').hide();
     }
 }
 </script>

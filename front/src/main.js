@@ -6,6 +6,13 @@ import router from './router'
 import Vuex from 'vuex'
 import 'es6-promise/auto'
 
+import "../node_modules/jquery/dist/jquery.min.js";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+import "../node_modules/jquery-easing/dist/jquery.easing.1.3.umd";
+
+window.$ = window.jQuery = require('jquery')
+//import $ from 'jquery'
+
 Vue.use(Vuex)
 
 const moduleA = {
