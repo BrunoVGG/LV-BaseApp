@@ -10,6 +10,15 @@ import "../node_modules/jquery/dist/jquery.min.js";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../node_modules/jquery-easing/dist/jquery.easing.1.3.umd";
 
+
+import axios from 'axios'
+import { mapState } from 'vuex'
+
+import './styles/custom-bootstrap.scss';
+import '../node_modules/bootstrap/scss/bootstrap.scss';
+import '../node_modules/font-awesome/css/font-awesome.min.css';
+import './styles/system.scss';
+
 window.$ = window.jQuery = require('jquery')
 //import $ from 'jquery'
 
@@ -18,7 +27,14 @@ Vue.use(Vuex)
 const moduleA = {
   state: {
     count: 0,
-    msn:"Teste Message"
+    msn:"Teste Message",
+    breadcrumbs:[
+      { 
+        name:'',
+        link:'',
+        target:''
+      }
+    ]
   },
   mutations: {
     increment (state,txt) {      
@@ -30,9 +46,30 @@ const moduleA = {
   }
 }
 
-const moduleB = {
+const moduleGeneral = {
   state: {
-    // ...
+    breadcrumbs:[
+      { 
+        name:'Dashboard',
+        link:'',
+        target:''
+      }
+    ]
+  },
+  mutations: {
+    //...
+  }
+}
+
+const moduleMessages = {
+  state: {
+    breadcrumbs:[
+      { 
+        name:'Dashboard',
+        link:'',
+        target:''
+      }
+    ]
   },
   mutations: {
     //...
@@ -42,7 +79,8 @@ const moduleB = {
 const store = new Vuex.Store({
   modules: {
     a: moduleA,
-    b: moduleB
+    general: moduleGeneral,
+    message:moduleMessages
   }
 })
 

@@ -6,25 +6,7 @@
       <div class="container-fluid">
         <!-- Breadcrumbs-->
         <breadcrumb :breadcrumbs="breadcrumbs"></breadcrumb>
-        <div class="container container-system">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>
-                        Count by 
-                        <a href="https://vuex.vuejs.org/en/" target="_blank">
-                            Vuex
-                        </a>
-                    </h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    {{ count }} = 
-                    <input v-model="count" v-on:change="updateCount" type="number" >
-                    <button v-on:click="add()">Add</button>
-                </div>
-            </div>
-        </div>
+        
       </div>
       <!-- /.container-fluid-->
       <!-- /.content-wrapper-->
@@ -34,6 +16,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { mapState } from 'vuex'
 import menuArea from './common/Menu.vue'
 import FooterArea from './common/Footer.vue'
@@ -47,7 +30,7 @@ import "../../../node_modules/datatables/media/js/jquery.dataTables.js";
 
 
 export default {
-    name: 'Counter',
+    name: 'BlackPage',
     components:{
         menuArea,
         FooterArea,
@@ -56,17 +39,16 @@ export default {
     },
     data () {
       return {
-        count:null,
         isLoading: false,
         breadcrumbs:[
             { 
-              name:'Counter',
+              name:'Dashboard',
               link:'#',
               target:'',
               class:""
             },
             { 
-              name:'Exemple',
+              name:'My Dashboard',
               link:null,
               target:'',
               class:"active"
@@ -76,9 +58,6 @@ export default {
     },
     mounted(){
       this.$store.state.general.breadcrumbs=this.breadcrumbs;
-      console.log('this.$store.state.a.count',this.$store.state.a.count);
-      this.$store.commit('increment');
-      this.count = this.$store.state.a.count;
     },
     methods:{
       fetchData() {
@@ -90,20 +69,7 @@ export default {
         },
         whenCancelled() {
             console.log("User cancelled the loader.")
-        },
-                updateCount(){
-            console.log("updateCount");
-            this.$store.state.a.count = this.count;
-        },
-        add(){
-            this.$store.state.a.msn = "My Message";
-            this.$store.commit('increment','My Text');
-            this.count = this.$store.state.a.count;
         }
     }
 }
 </script>
-
-<style lang="scss">
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
-</style>

@@ -21,9 +21,11 @@
                         </label>
                         <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
                     </form>
-                    <router-link tag="a" to="/create_user">
-                        Create Account
-                    </router-link>
+                    <div class="text-center">
+                        <router-link tag="a" to="/create_user">
+                            Create Account
+                        </router-link>
+                    </div>
                 </div>
             </div>
         </div>
@@ -94,7 +96,6 @@ export default {
 }
 </script>
 
-<style lang="css">
-    @import "../assets/bootstrap/css/bootstrap.min.css";
-    @import "../assets/css/default.css";
+<style lang="scss">
+    @import "'../styles/login.scss'";
 </style>

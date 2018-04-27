@@ -9,7 +9,6 @@ import Users from '@/components/system/Users'
 import MyUser from '@/components/system/MyUser'
 import Counter from '@/components/system/Counter'
 import BlankPage from '@/components/system/BlankPage'
-import BlankPage2 from '@/components/system/BlankPage2'
 
 Vue.use(VueAxios, axios)
 Vue.use(Router)
@@ -58,12 +57,6 @@ export default new Router({
       path: '/system/blank_page',
       name: 'BlankPage',
       component: BlankPage,
-      requiresAuth: true
-    },
-    {
-      path: '/system/blank_page2',
-      name: 'BlankPage2',
-      component: BlankPage2,
       requiresAuth: true
     }
   ]

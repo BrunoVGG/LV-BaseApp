@@ -38,9 +38,11 @@
                                 </div>
                             </div>
                     </form>
-                    <router-link tag="a" to="/">
-                        Login Area
-                    </router-link>
+                    <div class="text-center">
+                        <router-link tag="a" to="/">
+                            Login Area
+                        </router-link>
+                    </div>
               </div>
           </div>
       </div>
@@ -99,8 +101,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="css">
-    @import "../assets/bootstrap/css/bootstrap.min.css";
-    @import "../assets/css/default.css";
+<style lang="scss">
+    @import "'../styles/login.scss'";
 </style>
